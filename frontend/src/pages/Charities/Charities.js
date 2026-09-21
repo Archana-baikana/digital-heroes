@@ -1,6 +1,7 @@
 
 import {useEffect, useState} from 'react'
 import API_URL from '../../services/api'
+
 import './Charities.css'
 
 const Charities = () => {
@@ -30,7 +31,7 @@ const Charities = () => {
       if (response.ok) {
         setCharities(data.charities || [])
       } else {
-        setMessage(data.message)
+        setMessage(data.message || 'Unable to load charities')
       }
     } catch (error) {
       setMessage('Unable to load charities')
@@ -42,7 +43,7 @@ const Charities = () => {
       const token = localStorage.getItem('token')
 
       const response = await fetch(
-         `${API_URL}/api/charities/my`,
+        `${API_URL}/api/charities/my`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -72,7 +73,8 @@ const Charities = () => {
     try {
       const token = localStorage.getItem('token')
 
-      const response = await fetch(`${API_URL}/api/charities/select`,
+      const response = await fetch(
+        `${API_URL}/api/charities/select`,
         {
           method: 'POST',
           headers: {
@@ -92,7 +94,9 @@ const Charities = () => {
         setMessage('Charity selected successfully!')
         fetchMyCharity()
       } else {
-        setMessage(data.message)
+        setMessage(
+          data.message || 'Unable to select charity',
+        )
       }
     } catch (error) {
       setMessage('Unable to select charity')
@@ -216,17 +220,20 @@ const Charities = () => {
 
         {featuredCharities.length > 0 && (
           <section className="featured-section">
+
             <div className="section-heading">
               <p>FEATURED</p>
               <h2>Causes making a difference</h2>
             </div>
 
             <div className="charities-grid">
+
               {featuredCharities.map(charity => (
                 <div
                   className="charity-card featured-card"
                   key={charity.id}
                 >
+
                   <div className="featured-badge">
                     Featured
                   </div>
@@ -236,6 +243,7 @@ const Charities = () => {
                   </div>
 
                   <div className="charity-card-content">
+
                     <h2>{charity.name}</h2>
 
                     <p>
@@ -243,6 +251,7 @@ const Charities = () => {
                     </p>
 
                     <div className="charity-actions">
+
                       <button
                         type="button"
                         onClick={() =>
@@ -263,38 +272,50 @@ const Charities = () => {
                           ? 'Selected'
                           : 'Choose This Charity'}
                       </button>
+
                     </div>
+
                   </div>
+
                 </div>
               ))}
+
             </div>
+
           </section>
         )}
 
         {/* ALL CHARITIES */}
 
         <section className="all-charities-section">
+
           <div className="section-heading">
             <p>OUR CHARITIES</p>
             <h2>Choose your cause</h2>
           </div>
 
           {filteredCharities.length === 0 ? (
+
             <div className="empty-charities">
               No charities found.
             </div>
+
           ) : (
+
             <div className="charities-grid">
+
               {filteredCharities.map(charity => (
                 <div
                   className="charity-card"
                   key={charity.id}
                 >
+
                   <div className="charity-image">
                     <span>✦</span>
                   </div>
 
                   <div className="charity-card-content">
+
                     <h2>{charity.name}</h2>
 
                     <p>
@@ -302,6 +323,7 @@ const Charities = () => {
                     </p>
 
                     <div className="charity-actions">
+
                       <button
                         type="button"
                         onClick={() =>
@@ -322,18 +344,24 @@ const Charities = () => {
                           ? 'Selected'
                           : 'Choose This Charity'}
                       </button>
+
                     </div>
+
                   </div>
+
                 </div>
               ))}
+
             </div>
           )}
+
         </section>
 
         {/* DETAILS */}
 
         {showDetails && (
           <div className="charity-modal">
+
             <div className="charity-modal-content">
 
               <button
@@ -365,6 +393,7 @@ const Charities = () => {
               </button>
 
             </div>
+
           </div>
         )}
 
