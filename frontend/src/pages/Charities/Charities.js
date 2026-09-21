@@ -1,5 +1,6 @@
 
 import {useEffect, useState} from 'react'
+import API_URL from '../../services/api'
 import './Charities.css'
 
 const Charities = () => {
@@ -16,7 +17,7 @@ const Charities = () => {
       const token = localStorage.getItem('token')
 
       const response = await fetch(
-        'http://localhost:3001/api/charities',
+        `${API_URL}/api/charities`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -41,7 +42,7 @@ const Charities = () => {
       const token = localStorage.getItem('token')
 
       const response = await fetch(
-        'http://localhost:3001/api/charities/my',
+         `${API_URL}/api/charities/my`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
