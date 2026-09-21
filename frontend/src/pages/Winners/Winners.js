@@ -1,5 +1,6 @@
 
 import {useEffect, useState} from 'react'
+import API_URL from '../../services/api'
 import './Winners.css'
 
 const Winners = () => {
@@ -13,7 +14,7 @@ const Winners = () => {
       const token = localStorage.getItem('token')
 
       const response = await fetch(
-        'http://localhost:3001/api/winners/my',
+        `${API_URL}/api/winners/my`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -26,7 +27,7 @@ const Winners = () => {
       if (response.ok) {
         setWinners(data.winners || [])
       } else {
-        setMessage(data.message)
+        setMessage(data.message || 'Unable to load winners')
       }
     } catch (error) {
       setMessage('Unable to load winners')
@@ -58,7 +59,7 @@ const Winners = () => {
       const token = localStorage.getItem('token')
 
       const response = await fetch(
-        `http://localhost:3001/api/winners/${id}/proof`,
+        `${API_URL}/api/winners/${id}/proof`,
         {
           method: 'PUT',
           headers: {
@@ -77,7 +78,7 @@ const Winners = () => {
         setMessage('Proof submitted successfully.')
         fetchWinners()
       } else {
-        setMessage(data.message)
+        setMessage(data.message || 'Unable to submit proof.')
       }
     } catch (error) {
       setMessage('Unable to submit proof.')
@@ -209,8 +210,7 @@ const Winners = () => {
                   </a>
                 )}
 
-                {winner.verification_status !==
-                  'approved' &&
+                {winner.verification_status !== 'approved' &&
                   winner.payout_status !== 'paid' && (
                     <div className="proof-form">
 
