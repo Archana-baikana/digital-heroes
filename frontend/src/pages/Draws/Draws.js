@@ -1,5 +1,6 @@
 
 import {useEffect, useState} from 'react'
+import API_URL from '../../services/api'
 import './Draws.css'
 
 const Draws = () => {
@@ -12,7 +13,7 @@ const Draws = () => {
       const token = localStorage.getItem('token')
 
       const response = await fetch(
-        'http://localhost:3001/api/draws/published',
+        `${API_URL}/api/draws/published`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -25,7 +26,7 @@ const Draws = () => {
       if (response.ok) {
         setDraws(data.draws || [])
       } else {
-        setMessage(data.message)
+        setMessage(data.message || 'Unable to load draws')
       }
     } catch (error) {
       setMessage('Unable to load draws')
@@ -133,7 +134,8 @@ const Draws = () => {
                     <span>Prize Pool</span>
 
                     <strong>
-                      ₹{Number(
+                      ₹
+                      {Number(
                         draw.prize_pool || 0,
                       ).toLocaleString()}
                     </strong>
@@ -143,7 +145,8 @@ const Draws = () => {
                     <span>Rollover</span>
 
                     <strong>
-                      ₹{Number(
+                      ₹
+                      {Number(
                         draw.rollover_amount || 0,
                       ).toLocaleString()}
                     </strong>
