@@ -72,8 +72,7 @@ const Charities = () => {
     try {
       const token = localStorage.getItem('token')
 
-      const response = await fetch(
-        'http://localhost:3001/api/charities/select',
+      const response = await fetch(`${API_URL}/api/charities/select`,
         {
           method: 'POST',
           headers: {
