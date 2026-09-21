@@ -1,5 +1,6 @@
 
 import {useEffect, useState} from 'react'
+import API_URL from '../../services/api'
 import './Scores.css'
 
 const Scores = () => {
@@ -85,15 +86,17 @@ const Scores = () => {
     try {
       const token = localStorage.getItem('token')
 
-      const response = await fetch(
-        `http://localhost:3001/api/scores/${id}`,
-        {
-          method: 'DELETE',
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        },
-      )
+       const response = await fetch(`${API_URL}/api/scores`, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    Authorization: `Bearer ${token}`,
+  },
+  body: JSON.stringify({
+    score,
+    score_date: scoreDate,
+  }),
+})
 
       const data = await response.json()
 
