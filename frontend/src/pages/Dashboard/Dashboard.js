@@ -1,10 +1,12 @@
 
- import {useEffect, useState} from 'react'
+import {useEffect, useState} from 'react'
 import {useNavigate} from 'react-router-dom'
+import API_URL from '../../services/api'
 import './Dashboard.css'
 
 const Dashboard = () => {
-    const navigate = useNavigate()
+  const navigate = useNavigate()
+
   const [subscription, setSubscription] = useState(null)
   const [scores, setScores] = useState([])
   const [charity, setCharity] = useState(null)
@@ -28,23 +30,23 @@ const Dashboard = () => {
           winnersResponse,
           drawsResponse,
         ] = await Promise.all([
-          fetch('http://localhost:3001/api/subscriptions/my', {
+          fetch(`${API_URL}/api/subscriptions/my`, {
             headers,
           }),
 
-          fetch('http://localhost:3001/api/scores/my', {
+          fetch(`${API_URL}/api/scores/my`, {
             headers,
           }),
 
-          fetch('http://localhost:3001/api/charities/my', {
+          fetch(`${API_URL}/api/charities/my`, {
             headers,
           }),
 
-          fetch('http://localhost:3001/api/winners/my', {
+          fetch(`${API_URL}/api/winners/my`, {
             headers,
           }),
 
-          fetch('http://localhost:3001/api/draws/published', {
+          fetch(`${API_URL}/api/draws/published`, {
             headers,
           }),
         ])
@@ -137,17 +139,17 @@ const Dashboard = () => {
             )}
           </div>
         ) : (
-           <div>
-    <p>No active subscription found.</p>
+          <div>
+            <p>No active subscription found.</p>
 
-    <button
-      type="button"
-      onClick={() => navigate('/subscription')}
-      className="dashboard-subscribe-button"
-    >
-      Subscribe Now
-    </button>
-  </div>
+            <button
+              type="button"
+              onClick={() => navigate('/subscription')}
+              className="dashboard-subscribe-button"
+            >
+              Subscribe Now
+            </button>
+          </div>
         )}
       </section>
 
@@ -286,67 +288,66 @@ const Dashboard = () => {
       </section>
 
       {/* Quick Actions */}
+      <section className="dashboard-actions">
 
-<section className="dashboard-actions">
+        <div className="dashboard-action-card">
+          <div className="action-icon">
+            ✓
+          </div>
 
-  <div className="dashboard-action-card">
-    <div className="action-icon">
-      ✓
-    </div>
+          <h3>Update Your Scores</h3>
 
-    <h3>Update Your Scores</h3>
+          <p>
+            Keep your latest five Stableford scores updated.
+          </p>
 
-    <p>
-      Keep your latest five Stableford scores updated.
-    </p>
+          <button
+            type="button"
+            onClick={() => navigate('/scores')}
+          >
+            Manage Scores
+          </button>
+        </div>
 
-    <button
-      type="button"
-      onClick={() => navigate('/scores')}
-    >
-      Manage Scores
-    </button>
-  </div>
+        <div className="dashboard-action-card">
+          <div className="action-icon">
+            ♥
+          </div>
 
-  <div className="dashboard-action-card">
-    <div className="action-icon">
-      ♥
-    </div>
+          <h3>Support a Cause</h3>
 
-    <h3>Support a Cause</h3>
+          <p>
+            Choose a charity and manage your contribution.
+          </p>
 
-    <p>
-      Choose a charity and manage your contribution.
-    </p>
+          <button
+            type="button"
+            onClick={() => navigate('/charities')}
+          >
+            View Charities
+          </button>
+        </div>
 
-    <button
-      type="button"
-      onClick={() => navigate('/charities')}
-    >
-      View Charities
-    </button>
-  </div>
+        <div className="dashboard-action-card">
+          <div className="action-icon">
+            ✦
+          </div>
 
-  <div className="dashboard-action-card">
-    <div className="action-icon">
-      ✦
-    </div>
+          <h3>Monthly Draw</h3>
 
-    <h3>Monthly Draw</h3>
+          <p>
+            View published draws and prize information.
+          </p>
 
-    <p>
-      View published draws and prize information.
-    </p>
+          <button
+            type="button"
+            onClick={() => navigate('/draws')}
+          >
+            View Draws
+          </button>
+        </div>
 
-    <button
-      type="button"
-      onClick={() => navigate('/draws')}
-    >
-      View Draws
-    </button>
-  </div>
-
-</section>
+      </section>
     </div>
   )
 }
