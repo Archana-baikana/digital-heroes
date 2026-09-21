@@ -5,7 +5,7 @@ import API_URL from '../../services/api'
 import './Subscription.css'
 
 const Subscription = () => {
-    const [selectedPlan, setSelectedPlan] = useState('')
+    const [selectedPlan ] = useState('')
   const [subscription, setSubscription] = useState(null)
   const [loading, setLoading] = useState(true)
    
