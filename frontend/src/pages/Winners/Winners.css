@@ -1,0 +1,138 @@
+
+.winners-page {
+  min-height: 80vh;
+  background: #f5f8f5;
+  padding: 55px 7%;
+}
+
+.winners-header {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.winners-header h1 {
+  color: #183c29;
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.winners-header p {
+  color: #66736a;
+}
+
+.winner-message {
+  text-align: center;
+  color: #1f6f43;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+.winners-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.winner-card {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+}
+
+.winner-card h2 {
+  color: #1f6f43;
+  margin-bottom: 18px;
+}
+
+.winner-card p {
+  color: #59655d;
+  margin: 10px 0;
+}
+
+.proof-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #1f6f43;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.proof-section {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.proof-section input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 11px;
+  border: 1px solid #d5ddd7;
+  border-radius: 8px;
+  outline: none;
+}
+
+.proof-section input:focus {
+  border-color: #1f6f43;
+}
+
+.proof-section button {
+  border: none;
+  background: #1f6f43;
+  color: #ffffff;
+  padding: 11px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.proof-section button:hover {
+  background: #185b36;
+}
+
+.no-winners {
+  max-width: 500px;
+  margin: auto;
+  background: #ffffff;
+  padding: 35px;
+  text-align: center;
+  border-radius: 16px;
+}
+
+.no-winners h2 {
+  color: #183c29;
+}
+
+.no-winners p {
+  color: #66736a;
+}
+
+.winners-loading {
+  min-height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #1f6f43;
+}
+
+@media (max-width: 900px) {
+  .winners-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .winners-page {
+    padding: 40px 20px;
+  }
+
+  .winners-header h1 {
+    font-size: 28px;
+  }
+
+  .winners-grid {
+    grid-template-columns: 1fr;
+  }
+}

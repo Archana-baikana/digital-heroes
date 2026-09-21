@@ -1,0 +1,160 @@
+
+.navbar {
+  background: #ffffff;
+  border-bottom: 1px solid #e7ece9;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+/* LOGO */
+
+.navbar-logo {
+  color: #16805c;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  white-space: nowrap;
+}
+
+.navbar-logo:hover {
+  color: #0f694b;
+}
+
+/* LINKS */
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.navbar-links a {
+  color: #35413b;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.navbar-links a:hover {
+  color: #16805c;
+}
+
+/* ADMIN */
+
+.admin-link {
+  color: #16805c !important;
+  font-weight: 800 !important;
+}
+
+/* LOGIN */
+
+.login-button {
+  background: #16805c;
+  color: #ffffff !important;
+  padding: 10px 18px;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+.login-button:hover {
+  background: #0f694b;
+  color: #ffffff !important;
+}
+
+/* LOGOUT */
+
+.logout-button {
+  border: none;
+  background: #17211d;
+  color: #ffffff;
+  padding: 10px 18px;
+  border-radius: 10px;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.logout-button:hover {
+  background: #2d3933;
+  transform: translateY(-1px);
+}
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+  .navbar-container {
+    padding: 15px 18px;
+  }
+
+  .navbar-links {
+    gap: 14px;
+  }
+
+  .navbar-links a {
+    font-size: 13px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .navbar-links {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px 16px;
+  }
+
+  .navbar-logo {
+    font-size: 22px;
+  }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 480px) {
+  .navbar {
+    position: relative;
+  }
+
+  .navbar-container {
+    padding: 15px 12px;
+  }
+
+  .navbar-links {
+    gap: 10px;
+  }
+
+  .navbar-links a {
+    font-size: 12px;
+  }
+
+  .login-button,
+  .logout-button {
+    padding: 8px 13px;
+    font-size: 12px;
+  }
+}

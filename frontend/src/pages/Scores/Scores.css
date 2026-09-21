@@ -1,0 +1,294 @@
+
+.scores-page {
+  min-height: 100vh;
+  background: #f7faf8;
+  padding: 70px 20px;
+}
+
+.scores-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.scores-header {
+  max-width: 650px;
+  margin-bottom: 35px;
+}
+
+.scores-label {
+  color: #16805c;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.scores-header h1 {
+  margin: 10px 0;
+  color: #17211d;
+  font-size: 44px;
+  line-height: 1.1;
+}
+
+.scores-header h1 span {
+  color: #16805c;
+}
+
+.scores-header > p:last-child {
+  color: #68756f;
+  line-height: 1.7;
+}
+
+.scores-message {
+  margin-bottom: 25px;
+  padding: 14px 18px;
+  background: #e7f6ef;
+  color: #126747;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.scores-layout {
+  display: grid;
+  grid-template-columns: 330px 1fr;
+  gap: 25px;
+}
+
+.score-form-card,
+.score-list-card {
+  background: #ffffff;
+  border: 1px solid #e5ebe7;
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 8px 25px rgba(23, 33, 29, 0.04);
+}
+
+.score-form-card h2,
+.score-list-card h2 {
+  margin: 0;
+  color: #17211d;
+}
+
+.score-form-card > p {
+  color: #7a8580;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.score-form-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-top: 25px;
+}
+
+.score-form-card label {
+  color: #35413b;
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+.score-form-card input {
+  padding: 13px;
+  border: 1px solid #d9e1dc;
+  border-radius: 9px;
+  outline: none;
+  font-size: 14px;
+}
+
+.score-form-card input:focus {
+  border-color: #16805c;
+}
+
+.score-form-card button {
+  margin-top: 15px;
+  padding: 13px;
+  border: none;
+  border-radius: 9px;
+  background: #16805c;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.score-form-card button:hover {
+  background: #0f694b;
+}
+
+.score-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.score-list-header p {
+  margin: 0 0 5px;
+  color: #16805c;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.score-list-header span {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #e7f6ef;
+  color: #16805c;
+  font-weight: 800;
+}
+
+.scores-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.score-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  border: 1px solid #edf1ee;
+  border-radius: 12px;
+}
+
+.score-number {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: #17211d;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.score-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.score-info strong {
+  color: #26332d;
+  font-size: 14px;
+}
+
+.score-info span {
+  color: #8a948f;
+  font-size: 12px;
+}
+
+.score-position {
+  color: #16805c;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.delete-score {
+  border: none;
+  background: transparent;
+  color: #b55353;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.delete-score:hover {
+  text-decoration: underline;
+}
+
+.empty-scores {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.empty-scores h3 {
+  color: #35413b;
+}
+
+.empty-scores p {
+  color: #8a948f;
+  font-size: 13px;
+}
+
+.score-info-box {
+  margin-top: 25px;
+  padding: 20px;
+  background: #17211d;
+  color: #ffffff;
+  border-radius: 14px;
+}
+
+.score-info-box strong {
+  font-size: 14px;
+}
+
+.score-info-box p {
+  margin: 8px 0 0;
+  color: #b8c3bd;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.scores-loading {
+  text-align: center;
+  padding: 100px 20px;
+  color: #16805c;
+  font-weight: 700;
+}
+
+/* TABLET */
+
+@media (max-width: 850px) {
+  .scores-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .score-form-card {
+    max-width: none;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .scores-page {
+    padding: 45px 15px;
+  }
+
+  .scores-header h1 {
+    font-size: 34px;
+  }
+
+  .score-form-card,
+  .score-list-card {
+    padding: 20px;
+  }
+
+  .score-item {
+    gap: 10px;
+  }
+
+  .score-number {
+    width: 45px;
+    height: 45px;
+  }
+
+  .score-position {
+    display: none;
+  }
+
+  .delete-score {
+    font-size: 11px;
+  }
+}
